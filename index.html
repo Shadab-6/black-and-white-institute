@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black & White Institute — Excellence in Education</title>
+<meta name="description" content="Black & White Institute offers premium education with experienced faculty, practical learning, and career guidance. Join thousands of successful students.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0A0A0A;
+  --white: #FAFAFA;
+  --gray-100: #F5F5F0;
+  --gray-200: #E8E8E2;
+  --gray-400: #9A9A94;
+  --gray-600: #6B6B65;
+  --gold: #C9A84C;
+  --gold-light: #E8C96A;
+  --blue: #1E40AF;
+  --blue-light: #3B82F6;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-ui: 'Space Grotesk', sans-serif;
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --shadow-sm: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 40px rgba(0,0,0,0.10);
+  --shadow-lg: 0 24px 80px rgba(0,0,0,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--gray-100); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ─── NAVBAR ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 5%;
+  height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  transition: var(--transition);
+}
+nav.scrolled {
+  height: 60px;
+  background: rgba(10,10,10,0.98);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.nav-logo-mark {
+  width: 38px; height: 38px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: grid; place-items: center;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 18px;
+  color: var(--black);
+  letter-spacing: -0.5px;
+}
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-size: 20px; font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.3px;
+}
+.nav-logo-text span { color: var(--gold); }
+.nav-links {
+  display: flex; align-items: center; gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-ui);
+  font-size: 13px; font-weight: 500;
+  color: rgba(250,250,250,0.7);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--gold);
+  color: var(--black) !important;
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-weight: 600 !important;
+}
+.nav-cta:hover { background: var(--gold-light) !important; color: var(--black) !important; }
+.nav-hamburger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  cursor: pointer; background: none; border: none;
+  padding: 4px;
+}
+.nav-hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--white);
+  transition: var(--transition);
+  border-radius: 2px;
+}
+.mobile-menu {
+  display: none;
+  position: fixed; top: 72px; left: 0; right: 0;
+  background: rgba(10,10,10,0.98);
+  backdrop-filter: blur(20px);
+  padding: 24px 5% 32px;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  z-index: 999;
+  flex-direction: column; gap: 4px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: var(--font-ui);
+  font-size: 15px; font-weight: 500;
+  color: rgba(250,250,250,0.8);
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  letter-spacing: 0.3px;
+  transition: var(--transition);
+}
+.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu a:last-child { border: none; }
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  background: var(--black);
+  position: relative;
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(30,64,175,0.08) 0%, transparent 50%),
+    url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&q=80') center/cover no-repeat;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 50%, rgba(10,10,10,0.88) 100%);
+}
+.hero-grid-lines {
+  position: absolute; inset: 0;
+  background-image: 
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto;
+  padding: 120px 5% 80px;
+  width: 100%;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold);
+  font-family: var(--font-ui);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 8px 16px; border-radius: 100px;
+  margin-bottom: 28px;
+  opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+}
+.hero-badge-dot {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 8vw, 108px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.02;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  opacity: 0; animation: fadeUp 0.9s 0.35s forwards;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-title .line2 {
+  display: block;
+  font-weight: 600;
+  letter-spacing: -3px;
+}
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 2vw, 18px);
+  color: rgba(250,250,250,0.6);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  font-weight: 300;
+  opacity: 0; animation: fadeUp 0.9s 0.5s forwards;
+}
+.hero-ctas {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp 0.9s 0.65s forwards;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-ui);
+  font-size: 14px; font-weight: 600;
+  padding: 16px 32px; border-radius: 8px;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: var(--transition);
+  border: none; cursor: pointer;
+  box-shadow: 0 0 40px rgba(201,168,76,0.25);
+}
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 0 60px rgba(201,168,76,0.4);
+}
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent;
+  color: var(--white);
+  font-family: var(--font-ui);
+  font-size: 14px; font-weight: 500;
+  padding: 16px 32px; border-radius: 8px;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: var(--transition);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.btn-secondary:hover {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-2px);
+}
+.hero-stats {
+  position: absolute; bottom: 48px; left: 5%;
+  display: flex; gap: 48px;
+  opacity: 0; animation: fadeUp 0.9s 0.8s forwards;
+  z-index: 2;
+}
+.hero-stat-num {
+  font-family: var(--font-display);
+  font-size: 36px; font-weight: 600;
+  color: var(--white);
+  line-height: 1;
+}
+.hero-stat-num span { color: var(--gold); }
+.hero-stat-label {
+  font-family: var(--font-body);
+  font-size: 12px; font-weight: 400;
+  color: rgba(250,250,250,0.45);
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+.hero-float {
+  position: absolute; right: 6%; top: 50%;
+  transform: translateY(-50%);
+  width: 360px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 20px;
+  padding: 32px;
+  z-index: 2;
+  opacity: 0; animation: fadeLeft 1s 0.7s forwards;
+}
+.hero-float-title {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 600;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.hero-float-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.hero-float-row:last-child { border: none; padding-bottom: 0; }
+.hero-float-icon {
+  width: 36px; height: 36px;
+  background: rgba(201,168,76,0.12);
+  border-radius: 8px;
+  display: grid; place-items: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.hero-float-text { font-size: 14px; color: rgba(250,250,250,0.75); font-weight: 300; }
+
+/* ─── COMMON SECTION STYLES ─── */
+section { padding: 100px 5%; }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-tag {
+  font-family: var(--font-ui);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: var(--black);
+}
+.section-title strong { font-weight: 600; }
+.section-sub {
+  font-size: 16px; font-weight: 300;
+  color: var(--gray-600);
+  line-height: 1.7;
+  max-width: 560px;
+  margin-top: 16px;
+}
+.divider {
+  width: 48px; height: 2px;
+  background: var(--gold);
+  margin: 24px 0;
+}
+
+/* ─── ABOUT ─── */
+#about { background: var(--white); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.about-image-wrapper {
+  position: relative;
+}
+.about-image {
+  width: 100%; aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  background: var(--gray-200);
+}
+.about-image-accent {
+  position: absolute;
+  top: -20px; right: -20px;
+  width: 180px; height: 180px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0.3;
+}
+.about-badge {
+  position: absolute;
+  bottom: 24px; left: -24px;
+  background: var(--black);
+  color: var(--white);
+  padding: 20px 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(201,168,76,0.3);
+}
+.about-badge-num {
+  font-family: var(--font-display);
+  font-size: 36px; font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+.about-badge-text {
+  font-size: 12px; font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+}
+.about-pillars {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin-top: 36px;
+}
+.about-pillar {
+  background: var(--gray-100);
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 3px solid var(--gold);
+}
+.about-pillar-icon { font-size: 22px; margin-bottom: 8px; }
+.about-pillar-title {
+  font-family: var(--font-ui);
+  font-size: 13px; font-weight: 600;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.about-pillar-text {
+  font-size: 12px; color: var(--gray-600);
+  line-height: 1.5; font-weight: 300;
+}
+
+/* ─── COURSES ─── */
+#courses { background: var(--gray-100); }
+.courses-header {
+  display: flex; align-items: flex-end;
+  justify-content: space-between; gap: 24px;
+  margin-bottom: 56px; flex-wrap: wrap;
+}
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+.course-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid var(--gray-200);
+  group: course;
+}
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(201,168,76,0.3);
+}
+.course-card-img {
+  width: 100%; height: 200px;
+  object-fit: cover;
+  display: block;
+  background: var(--gray-200);
+  transition: transform 0.5s ease;
+}
+.course-card:hover .course-card-img { transform: scale(1.04); }
+.course-card-img-wrap { overflow: hidden; position: relative; }
+.course-badge {
+  position: absolute; top: 16px; left: 16px;
+  background: var(--black);
+  color: var(--gold);
+  font-family: var(--font-ui);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 100px;
+}
+.course-card-body { padding: 28px; }
+.course-card-title {
+  font-family: var(--font-display);
+  font-size: 24px; font-weight: 600;
+  color: var(--black); margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+.course-card-desc {
+  font-size: 14px; color: var(--gray-600);
+  line-height: 1.6; font-weight: 300; margin-bottom: 20px;
+}
+.course-meta {
+  display: flex; gap: 16px; margin-bottom: 24px;
+}
+.course-meta-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--gray-600);
+  font-family: var(--font-ui); font-weight: 500;
+}
+.course-meta-item svg { width: 14px; height: 14px; color: var(--gold); }
+.course-cta {
+  display: flex; align-items: center; justify-content: space-between;
+  color: var(--black);
+  font-family: var(--font-ui);
+  font-size: 13px; font-weight: 600;
+  text-decoration: none;
+  padding: 14px 20px;
+  background: var(--gray-100);
+  border-radius: 10px;
+  transition: var(--transition);
+}
+.course-cta:hover { background: var(--gold); color: var(--black); }
+.course-cta-arrow { font-size: 16px; transition: transform 0.3s; }
+.course-cta:hover .course-cta-arrow { transform: translateX(4px); }
+
+/* ─── WHY CHOOSE US ─── */
+#why { background: var(--black); padding: 100px 5%; }
+#why .section-title { color: var(--white); }
+#why .section-sub { color: rgba(250,250,250,0.5); }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2px; margin-top: 60px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px; overflow: hidden;
+}
+.why-card {
+  background: rgba(255,255,255,0.02);
+  padding: 40px 36px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.why-card::before {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.why-card:hover { background: rgba(201,168,76,0.04); }
+.why-card:hover::before { transform: scaleX(1); }
+.why-card-icon {
+  width: 52px; height: 52px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 14px;
+  display: grid; place-items: center;
+  font-size: 22px; margin-bottom: 20px;
+}
+.why-card-title {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 600;
+  color: var(--white); margin-bottom: 10px;
+  letter-spacing: -0.3px;
+}
+.why-card-text {
+  font-size: 14px; color: rgba(250,250,250,0.45);
+  line-height: 1.7; font-weight: 300;
+}
+
+/* ─── TESTIMONIALS ─── */
+#testimonials { background: var(--white); }
+.testi-slider-wrap { position: relative; overflow: hidden; margin-top: 56px; }
+.testi-track {
+  display: flex; gap: 24px;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.testi-card {
+  min-width: calc(33.33% - 16px);
+  background: var(--gray-100);
+  border-radius: 20px;
+  padding: 36px;
+  border: 1px solid var(--gray-200);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.testi-card:hover { border-color: rgba(201,168,76,0.3); box-shadow: var(--shadow-md); }
+.testi-stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; margin-bottom: 16px; }
+.testi-text {
+  font-family: var(--font-display);
+  font-size: 20px; font-weight: 400;
+  color: var(--black); line-height: 1.5;
+  letter-spacing: -0.3px; margin-bottom: 24px;
+  font-style: italic;
+}
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  object-fit: cover; background: var(--gray-200);
+  border: 2px solid rgba(201,168,76,0.3);
+}
+.testi-name {
+  font-family: var(--font-ui);
+  font-size: 14px; font-weight: 600;
+  color: var(--black);
+}
+.testi-role { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
+.testi-controls {
+  display: flex; gap: 12px; margin-top: 36px; justify-content: center;
+}
+.testi-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gray-200); cursor: pointer;
+  transition: var(--transition); border: none;
+}
+.testi-dot.active { background: var(--gold); width: 24px; border-radius: 4px; }
+
+/* ─── GALLERY ─── */
+#gallery { background: var(--gray-100); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 240px);
+  gap: 12px; margin-top: 56px;
+}
+.gallery-item {
+  border-radius: 14px; overflow: hidden;
+  cursor: pointer; position: relative;
+}
+.gallery-item:first-child {
+  grid-column: span 2; grid-row: span 2;
+}
+.gallery-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  background: var(--gray-200);
+  display: block;
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover .gallery-img { transform: scale(1.06); }
+.gallery-item::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.gallery-item:hover::after { opacity: 1; }
+
+/* ─── STATS ─── */
+#stats {
+  background: linear-gradient(135deg, var(--black) 0%, #111111 100%);
+  padding: 80px 5%;
+  position: relative; overflow: hidden;
+}
+#stats::before {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px; text-align: center;
+  max-width: 1200px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.stat-num span { color: var(--gold); }
+.stat-label {
+  font-family: var(--font-ui);
+  font-size: 12px; font-weight: 500;
+  color: rgba(250,250,250,0.4);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-top: 10px;
+}
+.stat-divider {
+  width: 1px; background: rgba(255,255,255,0.08);
+  display: block;
+}
+
+/* ─── WHATSAPP CTA ─── */
+#cta {
+  background: var(--white);
+  text-align: center;
+}
+.cta-inner {
+  background: var(--black);
+  border-radius: 28px;
+  padding: 80px 40px;
+  position: relative; overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.15);
+}
+.cta-inner::before {
+  content: '';
+  position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.1) 0%, transparent 70%);
+}
+.cta-inner .section-title { color: var(--white); }
+.cta-inner .section-sub { color: rgba(250,250,250,0.5); margin: 16px auto 0; text-align: center; }
+.cta-inner .divider { margin: 24px auto; }
+.btn-whatsapp {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: #25D366;
+  color: var(--white);
+  font-family: var(--font-ui);
+  font-size: 16px; font-weight: 600;
+  padding: 18px 40px; border-radius: 100px;
+  text-decoration: none;
+  margin-top: 40px;
+  transition: var(--transition);
+  box-shadow: 0 0 50px rgba(37,211,102,0.25);
+  position: relative; z-index: 1;
+}
+.btn-whatsapp:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 80px rgba(37,211,102,0.45);
+}
+.btn-whatsapp svg { width: 22px; height: 22px; }
+
+/* ─── MAP ─── */
+#location { background: var(--gray-100); }
+.location-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; align-items: start;
+  margin-top: 56px;
+}
+.map-embed {
+  border-radius: 20px; overflow: hidden;
+  height: 400px;
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-md);
+}
+.map-embed iframe { width: 100%; height: 100%; border: none; display: block; }
+.location-info { padding: 8px 0; }
+.location-info-title {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 600;
+  color: var(--black); margin-bottom: 8px; letter-spacing: -0.5px;
+}
+.location-info-sub { font-size: 15px; color: var(--gray-600); font-weight: 300; line-height: 1.6; margin-bottom: 32px; }
+.contact-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 14px;
+  margin-bottom: 12px;
+  border: 1px solid var(--gray-200);
+  transition: var(--transition);
+}
+.contact-item:hover { border-color: rgba(201,168,76,0.3); }
+.contact-item-icon {
+  width: 44px; height: 44px;
+  background: rgba(201,168,76,0.1);
+  border-radius: 10px;
+  display: grid; place-items: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.contact-item-label {
+  font-family: var(--font-ui);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 4px;
+}
+.contact-item-value {
+  font-size: 15px; font-weight: 500;
+  color: var(--black);
+}
+
+/* ─── CONTACT FORM ─── */
+#contact { background: var(--black); }
+#contact .section-title { color: var(--white); }
+#contact .section-sub { color: rgba(250,250,250,0.45); }
+.contact-form-wrap {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; margin-top: 56px;
+}
+.form-group { margin-bottom: 20px; }
+.form-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(250,250,250,0.5);
+  margin-bottom: 8px;
+}
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px; font-weight: 300;
+  transition: var(--transition);
+  outline: none;
+}
+.form-input::placeholder, .form-textarea::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: rgba(201,168,76,0.5);
+  background: rgba(201,168,76,0.04);
+}
+.form-select { cursor: pointer; }
+.form-select option { background: #1a1a1a; }
+.form-textarea { resize: vertical; min-height: 120px; }
+.contact-aside {
+  padding: 40px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  align-self: start;
+}
+.contact-aside-title {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 600;
+  color: var(--white); margin-bottom: 8px;
+}
+.contact-aside-sub { font-size: 14px; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.6; margin-bottom: 32px; }
+.contact-aside-row {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.contact-aside-row:last-child { border: none; }
+.contact-aside-icon {
+  width: 40px; height: 40px;
+  background: rgba(201,168,76,0.1);
+  border-radius: 10px;
+  display: grid; place-items: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.contact-aside-label { font-size: 12px; color: rgba(255,255,255,0.35); font-family: var(--font-ui); letter-spacing: 0.5px; }
+.contact-aside-val { font-size: 15px; color: var(--white); font-weight: 500; margin-top: 2px; }
+.btn-submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-ui);
+  font-size: 15px; font-weight: 700;
+  padding: 16px; border-radius: 10px;
+  border: none; cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+}
+.btn-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+.form-success {
+  display: none;
+  text-align: center; padding: 40px 20px;
+  color: var(--white);
+}
+.form-success-icon { font-size: 48px; margin-bottom: 16px; }
+.form-success-title { font-family: var(--font-display); font-size: 28px; font-weight: 600; margin-bottom: 8px; }
+.form-success-text { font-size: 15px; color: rgba(255,255,255,0.5); font-weight: 300; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(201,168,76,0.1);
+  padding: 64px 5% 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px; margin-bottom: 56px;
+}
+.footer-brand-name {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 600;
+  color: var(--white); letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+.footer-brand-name span { color: var(--gold); }
+.footer-brand-tag {
+  font-family: var(--font-ui);
+  font-size: 11px; font-weight: 500;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.footer-brand-text {
+  font-size: 13px; color: rgba(255,255,255,0.35);
+  line-height: 1.7; font-weight: 300; max-width: 260px;
+}
+.footer-col-title {
+  font-family: var(--font-ui);
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a {
+  font-size: 14px; color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.3s; font-weight: 300;
+}
+.footer-links a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-copy {
+  font-size: 13px; color: rgba(255,255,255,0.25);
+  font-weight: 300;
+}
+.footer-socials { display: flex; gap: 12px; }
+.footer-social {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  display: grid; place-items: center;
+  font-size: 14px; text-decoration: none;
+  color: rgba(255,255,255,0.4);
+  transition: var(--transition);
+}
+.footer-social:hover { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.3); color: var(--gold); }
+
+/* ─── FLOATING WHATSAPP ─── */
+.float-wa {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 56px; height: 56px;
+  background: #25D366;
+  border-radius: 50%; z-index: 500;
+  display: grid; place-items: center;
+  box-shadow: 0 8px 32px rgba(37,211,102,0.4);
+  text-decoration: none;
+  transition: var(--transition);
+}
+.float-wa:hover { transform: scale(1.1); box-shadow: 0 12px 48px rgba(37,211,102,0.5); }
+.float-wa svg { width: 28px; height: 28px; fill: white; }
+.float-wa-pulse {
+  position: absolute;
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: rgba(37,211,102,0.4);
+  animation: ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+@keyframes ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translate(28px, -50%); }
+  to { opacity: 1; transform: translate(0, -50%); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .hero-float { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-image-wrapper { max-width: 500px; margin: 0 auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 200px); }
+  .gallery-item:first-child { grid-column: span 2; grid-row: span 1; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .stat-divider { display: none; }
+  .contact-form-wrap { grid-template-columns: 1fr; }
+  .location-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  section { padding: 72px 5%; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .hero-stats { flex-wrap: wrap; gap: 24px; }
+  .testi-card { min-width: calc(100% - 0px); }
+  .about-pillars { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .gallery-item:first-child { grid-column: span 2; grid-row: span 1; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .courses-header { flex-direction: column; align-items: flex-start; }
+  .courses-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .hero-ctas { flex-direction: column; }
+  .hero-ctas a { text-align: center; justify-content: center; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item:first-child { grid-column: 1; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">B&W</div>
+    <span class="nav-logo-text">Black <span>&</span> White</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://wa.me/918826601186" class="nav-cta" target="_blank">WhatsApp Us</a></li>
+  </ul>
+  <button class="nav-hamburger" id="menuBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#courses" onclick="closeMobile()">Courses</a>
+  <a href="#why" onclick="closeMobile()">Why Us</a>
+  <a href="#testimonials" onclick="closeMobile()">Reviews</a>
+  <a href="#gallery" onclick="closeMobile()">Gallery</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="https://wa.me/918826601186" target="_blank" style="color:#25D366;font-weight:600;">📱 WhatsApp Us</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><div class="hero-badge-dot"></div>Delhi's Premier Institute</div>
+    <h1 class="hero-title">
+      Build Your<br>
+      <em>Future</em> With
+      <span class="line2">Excellence</span>
+    </h1>
+    <p class="hero-sub">Expert faculty, practical curriculum, and career-focused learning — designed to unlock your full potential and set you apart.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/918826601186" class="btn-primary" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Contact on WhatsApp
+      </a>
+      <a href="#courses" class="btn-secondary">
+        Explore Courses
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="hero-stat-num">5000<span>+</span></div>
+      <div class="hero-stat-label">Students Trained</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">98<span>%</span></div>
+      <div class="hero-stat-label">Success Rate</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">15<span>+</span></div>
+      <div class="hero-stat-label">Years Excellence</div>
+    </div>
+  </div>
+  <div class="hero-float">
+    <div class="hero-float-title">Our Commitments</div>
+    <div class="hero-float-row">
+      <div class="hero-float-icon">🎓</div>
+      <div class="hero-float-text">Expert faculty with real-world experience</div>
+    </div>
+    <div class="hero-float-row">
+      <div class="hero-float-icon">💼</div>
+      <div class="hero-float-text">100% career guidance & placement support</div>
+    </div>
+    <div class="hero-float-row">
+      <div class="hero-float-icon">📚</div>
+      <div class="hero-float-text">Practical, industry-ready curriculum</div>
+    </div>
+    <div class="hero-float-row">
+      <div class="hero-float-icon">🏆</div>
+      <div class="hero-float-text">Award-winning teaching methodology</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrapper reveal">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80" alt="Black and White Institute classroom" class="about-image">
+        <div class="about-image-accent"></div>
+        <div class="about-badge">
+          <div class="about-badge-num">15+</div>
+          <div class="about-badge-text">Years of Excellence</div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.15s">
+        <div class="section-tag">About the Institute</div>
+        <h2 class="section-title">Where Knowledge <strong>Meets</strong> Ambition</h2>
+        <div class="divider"></div>
+        <p class="section-sub">Black & White Institute was founded on a single belief — every student deserves world-class education with personalized attention. We combine expert teaching, modern infrastructure, and proven methodology to craft success stories.</p>
+        <div class="about-pillars">
+          <div class="about-pillar">
+            <div class="about-pillar-icon">🎯</div>
+            <div class="about-pillar-title">Clear Mission</div>
+            <div class="about-pillar-text">Empowering students with skills that create lasting careers</div>
+          </div>
+          <div class="about-pillar">
+            <div class="about-pillar-icon">👨‍🏫</div>
+            <div class="about-pillar-title">Expert Faculty</div>
+            <div class="about-pillar-text">Industry veterans with 10+ years of teaching experience</div>
+          </div>
+          <div class="about-pillar">
+            <div class="about-pillar-icon">📈</div>
+            <div class="about-pillar-title">Proven Results</div>
+            <div class="about-pillar-text">Consistent 98%+ pass rates across all major examinations</div>
+          </div>
+          <div class="about-pillar">
+            <div class="about-pillar-icon">🌱</div>
+            <div class="about-pillar-title">Modern Learning</div>
+            <div class="about-pillar-text">State-of-the-art classrooms with digital learning tools</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="container">
+    <div class="courses-header">
+      <div class="reveal">
+        <div class="section-tag">Our Programs</div>
+        <h2 class="section-title">Courses Built for <strong>Success</strong></h2>
+      </div>
+      <a href="https://wa.me/918826601186" class="btn-primary reveal" target="_blank" style="transition-delay:0.1s">View All Courses</a>
+    </div>
+    <div class="courses-grid">
+      <div class="course-card reveal">
+        <div class="course-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&q=80" alt="Class 10 Tuition" class="course-card-img">
+          <span class="course-badge">Popular</span>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">Class 10 Foundation</h3>
+          <p class="course-card-desc">Comprehensive coaching for all CBSE subjects. Build strong fundamentals and score distinction in board exams.</p>
+          <div class="course-meta">
+            <div class="course-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              1 Year Program
+            </div>
+            <div class="course-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              Small Batches
+            </div>
+          </div>
+          <a href="https://wa.me/918826601186" class="course-cta" target="_blank">
+            Enquire Now <span class="course-cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="course-card reveal" style="transition-delay:0.1s">
+        <div class="course-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=400&q=80" alt="Class 12 Tuition" class="course-card-img">
+          <span class="course-badge">Best Seller</span>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">Class 12 Excellence</h3>
+          <p class="course-card-desc">Science, Commerce & Humanities streams. Expert coaching with previous year papers and mock tests.</p>
+          <div class="course-meta">
+            <div class="course-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              1 Year Program
+            </div>
+            <div class="course-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              All Streams
+            </div>
+          </div>
+          <a href="https://wa.me/918826601186" class="course-cta" target="_blank">
+            Enquire Now <span class="course-cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="course-card reveal" style="transition-delay:0.2s">
+        <div class="course-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80" alt="Competitive Exams" class="course-card-img">
+          <span class="course-badge">New Batch</span>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">Competitive Exams</h3>
+          <p class="course-card-desc">Dedicated preparation for JEE, NEET, SSC, Banking & Government exams with intensive practice.</p>
+          <div class="course-meta">
+            <div class="course-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              6–12 Months
+            </div>
+            <div class="course-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              Live Tests
+            </div>
+          </div>
+          <a href="https://wa.me/918826601186" class="course-cta" target="_blank">
+            Enquire Now <span class="course-cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="course-card reveal" style="transition-delay:0.3s">
+        <div class="course-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1587093336587-eeca6cb17cf2?w=400&q=80" alt="Spoken English" class="course-card-img">
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">Spoken English</h3>
+          <p class="course-card-desc">Fluency training, grammar mastery, and communication skills for professional and academic success.</p>
+          <div class="course-meta">
+            <div class="course-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              3 Month Course
+            </div>
+            <div class="course-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              All Ages
+            </div>
+          </div>
+          <a href="https://wa.me/918826601186" class="course-cta" target="_blank">
+            Enquire Now <span class="course-cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="course-card reveal" style="transition-delay:0.4s">
+        <div class="course-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=400&q=80" alt="Mathematics" class="course-card-img">
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">Mathematics Mastery</h3>
+          <p class="course-card-desc">From basics to advanced calculus. Concept-first approach ensuring deep understanding, not rote learning.</p>
+          <div class="course-meta">
+            <div class="course-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Flexible Duration
+            </div>
+            <div class="course-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              Classes 6–12
+            </div>
+          </div>
+          <a href="https://wa.me/918826601186" class="course-cta" target="_blank">
+            Enquire Now <span class="course-cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="course-card reveal" style="transition-delay:0.5s">
+        <div class="course-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&q=80" alt="Computer Skills" class="course-card-img">
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">Computer Skills</h3>
+          <p class="course-card-desc">MS Office, Tally, DTP, and basic programming. Build digital skills essential for modern careers.</p>
+          <div class="course-meta">
+            <div class="course-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              3–6 Months
+            </div>
+            <div class="course-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              Certificate
+            </div>
+          </div>
+          <a href="https://wa.me/918826601186" class="course-cta" target="_blank">
+            Enquire Now <span class="course-cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto 0;">
+      <div class="section-tag">Why Students Choose Us</div>
+      <h2 class="section-title" style="color:var(--white)">The <strong>Difference</strong> Is Real</h2>
+      <p class="section-sub" style="margin:16px auto 0; text-align:center;">We don't just teach — we transform. Every element of our institute is engineered for your success.</p>
+    </div>
+    <div class="why-grid" style="margin-top:60px">
+      <div class="why-card reveal">
+        <div class="why-card-icon">👨‍🏫</div>
+        <div class="why-card-title">Expert Faculty</div>
+        <div class="why-card-text">Highly qualified teachers with 10+ years of experience who genuinely care about your progress.</div>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.1s">
+        <div class="why-card-icon">🔬</div>
+        <div class="why-card-title">Practical Learning</div>
+        <div class="why-card-text">Concept-based approach with real examples, lab sessions, and hands-on problem solving.</div>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.2s">
+        <div class="why-card-icon">💰</div>
+        <div class="why-card-title">Affordable Fees</div>
+        <div class="why-card-text">Premium education shouldn't cost a fortune. Transparent pricing with flexible EMI options.</div>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.3s">
+        <div class="why-card-icon">🤝</div>
+        <div class="why-card-title">Student Support</div>
+        <div class="why-card-text">Dedicated doubt-clearing sessions, personal mentoring, and 24/7 WhatsApp support.</div>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.4s">
+        <div class="why-card-icon">🚀</div>
+        <div class="why-card-title">Career Guidance</div>
+        <div class="why-card-text">Expert counseling to help you choose the right career path and achieve your goals.</div>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.5s">
+        <div class="why-card-icon">🏛️</div>
+        <div class="why-card-title">Modern Environment</div>
+        <div class="why-card-text">AC classrooms, digital boards, library access, and a comfortable learning atmosphere.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto 56px;">
+      <div class="section-tag">Student Stories</div>
+      <h2 class="section-title">Real Results, <strong>Real Students</strong></h2>
+    </div>
+    <div class="testi-slider-wrap reveal">
+      <div class="testi-track" id="testiTrack">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Black & White Institute completely transformed my understanding of Mathematics. From barely passing to scoring 95% in boards — the teaching here is truly exceptional."</p>
+          <div class="testi-author">
+            <img src="https://i.pravatar.cc/80?img=11" class="testi-avatar" alt="Priya">
+            <div>
+              <div class="testi-name">Priya Sharma</div>
+              <div class="testi-role">Class 12 Student — 95% in Boards</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The competitive exam preparation here is unmatched. The structured approach and regular mock tests helped me crack SSC CGL in my first attempt."</p>
+          <div class="testi-author">
+            <img src="https://i.pravatar.cc/80?img=52" class="testi-avatar" alt="Rohit">
+            <div>
+              <div class="testi-name">Rohit Kumar</div>
+              <div class="testi-role">SSC CGL Qualifier — All India Rank 342</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The teachers here don't just teach for exams — they build your foundation for life. My daughter went from average to topper in just 6 months."</p>
+          <div class="testi-author">
+            <img src="https://i.pravatar.cc/80?img=32" class="testi-avatar" alt="Mrs Verma">
+            <div>
+              <div class="testi-name">Mrs. Anita Verma</div>
+              <div class="testi-role">Parent — 2 Children Enrolled</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Small batch sizes mean teachers actually know your weaknesses. The personal attention I received here made all the difference for my NEET preparation."</p>
+          <div class="testi-author">
+            <img src="https://i.pravatar.cc/80?img=25" class="testi-avatar" alt="Aarav">
+            <div>
+              <div class="testi-name">Aarav Singh</div>
+              <div class="testi-role">NEET Aspirant — 650+ Score</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The Computer Skills course completely upgraded my career. I joined as a housewife and left as a Tally-certified accountant. Life-changing experience."</p>
+          <div class="testi-author">
+            <img src="https://i.pravatar.cc/80?img=47" class="testi-avatar" alt="Sunita">
+            <div>
+              <div class="testi-name">Sunita Gupta</div>
+              <div class="testi-role">Computer Skills Graduate — Now Employed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-controls" id="testiControls">
+      <button class="testi-dot active" data-slide="0"></button>
+      <button class="testi-dot" data-slide="1"></button>
+      <button class="testi-dot" data-slide="2"></button>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:500px; margin:0 auto 0;">
+      <div class="section-tag">Our Campus</div>
+      <h2 class="section-title">A Space Built to <strong>Inspire</strong></h2>
+    </div>
+    <div class="gallery-grid reveal" style="transition-delay:0.1s">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=600&q=80" class="gallery-img" alt="Main classroom" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&q=80" class="gallery-img" alt="Study hall" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&q=80" class="gallery-img" alt="Students studying" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?w=400&q=80" class="gallery-img" alt="Library" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&q=80" class="gallery-img" alt="Science lab" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="reveal">
+      <div class="stat-num"><span id="c1">0</span>+</div>
+      <div class="stat-label">Students Trained</div>
+    </div>
+    <div class="reveal" style="transition-delay:0.1s">
+      <div class="stat-num"><span id="c2">0</span>+</div>
+      <div class="stat-label">Courses Offered</div>
+    </div>
+    <div class="reveal" style="transition-delay:0.2s">
+      <div class="stat-num"><span id="c3">0</span>%</div>
+      <div class="stat-label">Success Rate</div>
+    </div>
+    <div class="reveal" style="transition-delay:0.3s">
+      <div class="stat-num"><span id="c4">0</span>+</div>
+      <div class="stat-label">Years of Excellence</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP CTA -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="section-tag">Start Your Journey</div>
+      <h2 class="section-title" style="color:var(--white)">Ready to Transform<br><strong>Your Future?</strong></h2>
+      <div class="divider"></div>
+      <p class="section-sub" style="color:rgba(250,250,250,0.45); margin:0 auto; text-align:center;">Don't wait for the right moment — create it. Message us on WhatsApp and get a free counseling session today.</p>
+      <a href="https://wa.me/918826601186" class="btn-whatsapp" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat With Us on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Find Us</div>
+      <h2 class="section-title">Visit Our <strong>Institute</strong></h2>
+    </div>
+    <div class="location-grid">
+      <div class="map-embed reveal">
+        <iframe
+          src="https://maps.google.com/maps?q=Black+%26+White+Institute+Delhi&output=embed&z=15"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Black & White Institute Location">
+        </iframe>
+      </div>
+      <div class="location-info reveal" style="transition-delay:0.15s">
+        <h3 class="location-info-title">Black & White Institute</h3>
+        <p class="location-info-sub">Conveniently located and easy to reach. Visit us to see our facilities and meet our faculty in person.</p>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <div class="contact-item-label">Location</div>
+            <div class="contact-item-value">Delhi, India</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📱</div>
+          <div>
+            <div class="contact-item-label">WhatsApp & Call</div>
+            <div class="contact-item-value">+91 88266 01186</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div>
+            <div class="contact-item-label">Working Hours</div>
+            <div class="contact-item-value">Mon – Sat: 8 AM – 8 PM</div>
+          </div>
+        </div>
+        <a href="https://maps.app.goo.gl/fwDVBkqCBFqh7NcB8" target="_blank" class="btn-primary" style="margin-top:24px; display:inline-flex;">
+          Get Directions →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:560px; margin:0 auto 0;">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title" style="color:var(--white)">Let's Start Your <strong>Journey</strong></h2>
+      <p class="section-sub" style="margin:16px auto 0; text-align:center;">Fill out the form and we'll get back to you within 24 hours — or just WhatsApp us directly!</p>
+    </div>
+    <div class="contact-form-wrap">
+      <div class="reveal">
+        <div id="contactFormWrap">
+          <div class="form-group">
+            <label class="form-label">Your Full Name</label>
+            <input type="text" class="form-input" id="fname" placeholder="e.g. Rahul Sharma">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone / WhatsApp</label>
+            <input type="tel" class="form-input" id="fphone" placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Course Interest</label>
+            <select class="form-select form-input" id="fcourse">
+              <option value="">Select a course...</option>
+              <option>Class 10 Foundation</option>
+              <option>Class 12 Excellence</option>
+              <option>Competitive Exams (JEE/NEET/SSC)</option>
+              <option>Spoken English</option>
+              <option>Mathematics Mastery</option>
+              <option>Computer Skills</option>
+              <option>Other / General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Message</label>
+            <textarea class="form-textarea" id="fmsg" placeholder="Tell us a bit about yourself and your goals..."></textarea>
+          </div>
+          <button class="btn-submit" onclick="handleSubmit()">Send Inquiry →</button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">🎉</div>
+          <div class="form-success-title">Message Received!</div>
+          <div class="form-success-text">We'll reach out within 24 hours. For faster response, WhatsApp us at +91 88266 01186</div>
+          <a href="https://wa.me/918826601186" class="btn-whatsapp" target="_blank" style="margin-top:24px; display:inline-flex; font-size:14px; padding:14px 28px;">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Directly
+          </a>
+        </div>
+      </div>
+      <div class="contact-aside reveal" style="transition-delay:0.15s">
+        <div class="contact-aside-title">Contact Info</div>
+        <div class="contact-aside-sub">Prefer to talk? Reach us directly through any of these channels.</div>
+        <div class="contact-aside-row">
+          <div class="contact-aside-icon">📱</div>
+          <div>
+            <div class="contact-aside-label">WhatsApp & Phone</div>
+            <div class="contact-aside-val">+91 88266 01186</div>
+          </div>
+        </div>
+        <div class="contact-aside-row">
+          <div class="contact-aside-icon">📍</div>
+          <div>
+            <div class="contact-aside-label">Location</div>
+            <div class="contact-aside-val">Delhi, India</div>
+          </div>
+        </div>
+        <div class="contact-aside-row">
+          <div class="contact-aside-icon">🕐</div>
+          <div>
+            <div class="contact-aside-label">Hours</div>
+            <div class="contact-aside-val">Mon–Sat, 8 AM – 8 PM</div>
+          </div>
+        </div>
+        <div style="margin-top:32px">
+          <a href="https://wa.me/918826601186" target="_blank" class="btn-primary" style="width:100%; justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Message on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Black <span>&</span> White</div>
+        <div class="footer-brand-tag">Institute of Excellence</div>
+        <p class="footer-brand-text">Empowering students across Delhi since over 15 years. Quality education, personalized attention, and measurable results.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#courses">Our Courses</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#testimonials">Student Reviews</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Programs</div>
+        <ul class="footer-links">
+          <li><a href="#courses">Class 10 Foundation</a></li>
+          <li><a href="#courses">Class 12 Excellence</a></li>
+          <li><a href="#courses">Competitive Exams</a></li>
+          <li><a href="#courses">Spoken English</a></li>
+          <li><a href="#courses">Computer Skills</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+918826601186">+91 88266 01186</a></li>
+          <li><a href="https://wa.me/918826601186" target="_blank">WhatsApp Us</a></li>
+          <li><a href="https://maps.app.goo.gl/fwDVBkqCBFqh7NcB8" target="_blank">Find on Maps</a></li>
+          <li><a href="#contact">Send Message</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Black & White Institute. All rights reserved.</div>
+      <div class="footer-socials">
+        <a href="https://wa.me/918826601186" class="footer-social" target="_blank" title="WhatsApp">📱</a>
+        <a href="#" class="footer-social" title="Instagram">📸</a>
+        <a href="#" class="footer-social" title="YouTube">▶️</a>
+        <a href="#" class="footer-social" title="Facebook">👍</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/918826601186" class="float-wa" target="_blank" title="WhatsApp Us">
+  <div class="float-wa-pulse"></div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+// NAV SCROLL
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// MOBILE MENU
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+function closeMobile() { mobileMenu.classList.remove('open'); }
+
+// REVEAL ON SCROLL
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// COUNTER ANIMATION
+function animateCounter(id, target, duration = 2000) {
+  const el = document.getElementById(id);
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { el.textContent = target.toLocaleString(); clearInterval(timer); return; }
+    el.textContent = Math.floor(start).toLocaleString();
+  }, 16);
+}
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter('c1', 5000);
+      animateCounter('c2', 20);
+      animateCounter('c3', 98);
+      animateCounter('c4', 15);
+      statsObserver.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+statsObserver.observe(document.getElementById('stats'));
+
+// TESTIMONIAL SLIDER
+const track = document.getElementById('testiTrack');
+const dots = document.querySelectorAll('.testi-dot');
+let current = 0;
+let slideInterval;
+
+function getVisibleSlides() {
+  return window.innerWidth <= 768 ? 1 : 3;
+}
+function slideTo(n) {
+  const vis = getVisibleSlides();
+  const cards = document.querySelectorAll('.testi-card');
+  const max = cards.length - vis;
+  current = Math.max(0, Math.min(n, max));
+  const w = track.parentElement.offsetWidth;
+  const gap = 24;
+  const cardW = (w - gap * (vis - 1)) / vis;
+  track.style.transform = `translateX(-${current * (cardW + gap)}px)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === current));
+}
+dots.forEach(d => d.addEventListener('click', () => slideTo(parseInt(d.dataset.slide))));
+
+function startAutoSlide() {
+  slideInterval = setInterval(() => {
+    const vis = getVisibleSlides();
+    const max = document.querySelectorAll('.testi-card').length - vis;
+    current = current >= max ? 0 : current + 1;
+    slideTo(current);
+  }, 4000);
+}
+startAutoSlide();
+track.parentElement.addEventListener('mouseenter', () => clearInterval(slideInterval));
+track.parentElement.addEventListener('mouseleave', startAutoSlide);
+window.addEventListener('resize', () => slideTo(0));
+
+// CONTACT FORM
+function handleSubmit() {
+  const name = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  if (!name || !phone) {
+    alert('Please fill in your name and phone number.');
+    return;
+  }
+  document.getElementById('contactFormWrap').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+  // Send to WhatsApp
+  const msg = encodeURIComponent(`Hi! I'm ${name}. Phone: ${phone}. Course: ${document.getElementById('fcourse').value || 'General'}. ${document.getElementById('fmsg').value}`);
+  setTimeout(() => window.open(`https://wa.me/918826601186?text=${msg}`, '_blank'), 1000);
+}
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
